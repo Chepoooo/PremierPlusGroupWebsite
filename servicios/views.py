@@ -1,15 +1,21 @@
-
 from django.shortcuts import render
 from .models import Servicio
 
 def home(request):
-    servicios = Servicio.objects.all()
-    context = {
-        'categorias': {
-            'vehiculos': servicios.filter(categoria='vehiculo'),
-            'apartamentos': servicios.filter(categoria='apartamento'),
-            'botes': servicios.filter(categoria='bote'),
-            'paquetes': servicios.filter(categoria='paquete'),
-        }
-    }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
+
+def vehiculos(request):
+    servicios = Servicio.objects.filter(categoria='vehiculo', disponible=True)
+    return render(request, 'vehiculos.html', {'servicios': servicios})
+
+def apartamentos(request):
+    servicios = Servicio.objects.filter(categoria='apartamento', disponible=True)
+    return render(request, 'apartamentos.html', {'servicios': servicios})
+
+def botes(request):
+    servicios = Servicio.objects.filter(categoria='bote', disponible=True)
+    return render(request, 'botes.html', {'servicios': servicios})
+
+def paquetes(request):
+    servicios = Servicio.objects.filter(categoria='paquete', disponible=True)
+    return render(request, 'paquetes.html', {'servicios': servicios})

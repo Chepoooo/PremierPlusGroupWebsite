@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Renta de Vehículos | Renta Fácil{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-5">Renta de Vehículos</h2>
+  <div class="row">
+    {% for servicio in servicios %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ servicio.imagen.url }}" class="card-img-top" alt="{{ servicio.titulo }}">
+          <div class="card-body">
+            <h5>{{ servicio.titulo }}</h5>
+            <p>{{ servicio.descripcion|truncatewords:20 }}</p>
+            <p class="fw-bold text-primary">${{ servicio.precio }}</p>
+            <a href="https://wa.me/584121234567?text=Hola%20estoy%20interesado%20en%20el%20servicio%20{{ servicio.titulo }}" class="btn btn-success">
+              Contactar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">No hay vehículos disponibles actualmente.</p>
+    {% endfor %}
+  </div>
+
+    <div class="text-center mt-4">
+    <a href="{% url 'home' %}" class="btn btn-secondary">
+      ← Volver al Inicio
+    </a>
+  </div>
+
+</div>
+{% endblock %}

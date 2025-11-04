@@ -30,32 +30,54 @@
 
 <!-- Servicios -->
 <section id="servicios" class="container my-5">
-  <h2 class="text-center mb-4">Nuestros Servicios</h2>
-  {% for categoria, lista in categorias.items %}
-    <h3 class="mt-4 text-capitalize">{{ categoria|title }}</h3>
-    <div class="row">
-      {% if lista %}
-        {% for servicio in lista %}
-          <div class="col-md-3 mb-4">
-            <div class="card h-100">
-              {% if servicio.imagen %}
-                <img src="{{ servicio.imagen.url }}" class="card-img-top" alt="{{ servicio.titulo }}">
-              {% endif %}
-              <div class="card-body">
-                <h5 class="card-title">{{ servicio.titulo }}</h5>
-                <p class="card-text">{{ servicio.descripcion|truncatewords:15 }}</p>
-                {% if servicio.precio %}
-                  <p class="fw-bold">${{ servicio.precio }}</p>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p>No hay {{ categoria }} disponibles actualmente.</p>
-      {% endif %}
+  <h2 class="text-center mb-5">Nuestros Servicios</h2>
+  <div class="row text-center">
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" class="card-img-top p-4" alt="Vehículos">
+        <div class="card-body">
+          <h5 class="card-title">Renta de Vehículos</h5>
+          <p class="card-text text-muted">Explora con libertad. Encuentra el auto ideal para tu viaje.</p>
+          <a href="{% url 'vehiculos' %}" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
     </div>
-  {% endfor %}
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://cdn-icons-png.flaticon.com/512/6194/6194027.png" class="card-img-top p-4" alt="Apartamentos">
+        <div class="card-body">
+          <h5 class="card-title">Renta de Apartamentos</h5>
+          <p class="card-text text-muted">Encuentra el lugar perfecto para hospedarte durante tus vacaciones.</p>
+          <a href="{% url 'apartamentos' %}" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://cdn-icons-png.flaticon.com/512/2382/2382461.png" class="card-img-top p-4" alt="Botes">
+        <div class="card-body">
+          <h5 class="card-title">Renta de Botes</h5>
+          <p class="card-text text-muted">Navega y disfruta del mar con nuestros botes disponibles.</p>
+          <a href="{% url 'botes' %}" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="card-img-top p-4" alt="Paquetes">
+        <div class="card-body">
+          <h5 class="card-title">Paquetes Turísticos</h5>
+          <p class="card-text text-muted">Todo incluido para una experiencia completa y sin preocupaciones.</p>
+          <a href="{% url 'paquetes' %}" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- Contacto -->
