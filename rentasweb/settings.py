@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
+from django.conf.urls.static import static
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -82,8 +84,12 @@ WSGI_APPLICATION = 'rentasweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "rentasweb",
+        "USER": "postgres",
+        "PASSWORD": '21052002',
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -147,6 +153,10 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
 
 
 
