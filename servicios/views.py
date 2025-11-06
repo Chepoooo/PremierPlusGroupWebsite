@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Servicio
+from django.core.paginator import Paginator
 
 def home(request):
     return render(request, 'home.html')

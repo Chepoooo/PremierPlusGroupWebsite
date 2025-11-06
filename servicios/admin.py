@@ -1,7 +1,10 @@
 
+from datetime import datetime
 from django.contrib import admin
 from .models import Servicio
 from django.utils.html import format_html
+from datetime import timedelta
+from django.utils import timezone
 
 class RangoPrecioFilter(admin.SimpleListFilter):
     title = 'Rango de precios'  # Texto que aparece en el panel lateral
@@ -22,6 +25,30 @@ class RangoPrecioFilter(admin.SimpleListFilter):
         if self.value() == 'alto':
             return queryset.filter(precio__gt=500)
         return queryset
+    
+class FechaCreacionFilter(admin.SimpleListFilter):
+    title = 'Fecha de creación'
+    parameter_name = 'fecha_creacion_rango'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('semana', 'Última semana'),
+            ('mes', 'Último mes'),
+            ('anio', 'Último año'),
+        )
+
+    def queryset(self, request, queryset):
+        hoy = timezone.now()
+        if self.value() == 'semana':
+            hace_una_semana = hoy - timedelta(days=7)
+            return queryset.filter(fecha_creacion__gte=hace_una_semana)
+        if self.value() == 'mes':
+            hace_un_mes = hoy - timedelta(days=30)
+            return queryset.filter(fecha_creacion__gte=hace_un_mes)
+        if self.value() == 'anio':
+            hace_un_anio = hoy - timedelta(days=365)
+            return queryset.filter(fecha_creacion__gte=hace_un_anio)
+        return queryset
 
 @admin.register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
@@ -36,9 +63,9 @@ class ServicioAdmin(admin.ModelAdmin):
     list_filter = (
         'categoria', 
         'disponible',
-        'precio',  # Rango de precios
-        'fecha_creacion',
-        RangoPrecioFilter
+        'precio',  # Rango de precios,
+        RangoPrecioFilter,
+        FechaCreacionFilter
     )
     search_fields = ('titulo', 'descripcion')
     list_editable = ('disponible',)
