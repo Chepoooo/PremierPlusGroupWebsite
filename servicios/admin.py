@@ -2,6 +2,7 @@
 from datetime import datetime
 from django.contrib import admin
 from .models import Servicio
+from .models import Servicio, FAQ
 from django.utils.html import format_html
 from datetime import timedelta
 from django.utils import timezone
@@ -94,3 +95,10 @@ class ServicioAdmin(admin.ModelAdmin):
             )
         return "Sin imagen"
     imagen_preview.short_description = 'Vista previa'
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('pregunta', 'activo', 'fecha_creacion')
+    list_filter = ('activo',)
+    search_fields = ('pregunta', 'respuesta')

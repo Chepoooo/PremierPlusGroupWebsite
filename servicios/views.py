@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from .models import Servicio
+from .models import FAQ, Servicio
 from django.core.paginator import Paginator
 
 def home(request):
-    return render(request, 'home.html')
+    faqs = FAQ.objects.filter(activo=True)
+    return render(request, 'home.html', {'faqs': faqs})
 
 def vehiculos(request):
     servicios_list = Servicio.objects.filter(categoria='vehiculo', disponible=True)

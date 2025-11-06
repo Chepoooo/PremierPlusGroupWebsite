@@ -22,3 +22,18 @@ class Servicio(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+    
+class FAQ(models.Model):
+    pregunta = models.CharField(max_length=255)
+    respuesta = models.TextField()
+    activo = models.BooleanField(default=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Pregunta Frecuente"
+        verbose_name_plural = "Preguntas Frecuentes"
+        ordering = ['-fecha_creacion']
+
+    def __str__(self):
+        return self.pregunta

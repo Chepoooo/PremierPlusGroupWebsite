@@ -1,6 +1,94 @@
+/* --- AJUSTE GLOBAL --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Solo empuja hacia abajo el contenido normal, no el hero */
+main, section:not(.hero) {
+    padding-top: 100px; /* Ajusta según la altura del navbar */
+}
+
+/* --- IMÁGENES DE SERVICIOS --- */
 .servicio-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     object-position: center;
+    border-radius: 5px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Tamaño grande tipo portada */
+    min-height: 100vh;
+    width: 100%;
+
+    /* Evita que el navbar lo tape */
+    padding-top: 80px;
+
+    /* Transición suave si se cambia el fondo en el futuro */
+    transition: background 0.3s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* --- FOOTER FIJO ABAJO --- */
+footer {
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+}
+
+/* --- PAGINACIÓN --- */
+.pagination {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.page-link {
+    color: #007BFF;
+    border: 1px solid #007BFF;
+}
+
+.page-link:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* --- RESPONSIVE HERO --- */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 70px;
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
