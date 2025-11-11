@@ -92,3 +92,72 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* === HERO ANIMATION === */
+.hero {
+  background: #007BFF;
+  color: white;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.hero.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === GENERAL SCROLL ANIMATIONS === */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* === ANIMACIÓN DE TARJETAS === */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto zoom en la imagen */
+.card img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Efecto en el botón */
+.card .btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card .btn:hover {
+  background-color: #0056b3; /* tono más oscuro del azul */
+  transform: scale(1.05);
+}
+
+/* Bordes suaves en las tarjetas */
+.card-body {
+  border-top: 1px solid #f1f1f1;
+  padding: 1.5rem;
+}

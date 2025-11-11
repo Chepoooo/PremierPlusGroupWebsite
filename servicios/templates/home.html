@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Inicio | Renta Fácil{% endblock %}
-
+{% load static %}
 {% block content %}
 
 <!-- Hero -->
@@ -13,13 +13,13 @@
 </section>
 
 <!-- Servicios -->
-<section id="servicios" class="container my-5">
+<section id="servicios" class="container my-5 reveal">
   <h2 class="text-center mb-5">Nuestros Servicios</h2>
   <div class="row text-center">
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" class="card-img-top p-4" alt="Vehículos">
+        <img src="{% static 'img/vehiculo.png' %}" class="card-img-top p-4" alt="Vehículos">
         <div class="card-body">
           <h5 class="card-title">Renta de Vehículos</h5>
           <p class="card-text text-muted">Explora con libertad. Encuentra el auto ideal para tu viaje.</p>
@@ -30,7 +30,7 @@
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="https://cdn-icons-png.flaticon.com/512/6194/6194027.png" class="card-img-top p-4" alt="Apartamentos">
+        <img src="{% static 'img/departamento.png' %}" class="card-img-top p-4" alt="Apartamentos">
         <div class="card-body">
           <h5 class="card-title">Renta de Apartamentos</h5>
           <p class="card-text text-muted">Encuentra el lugar perfecto para hospedarte durante tus vacaciones.</p>
@@ -41,7 +41,7 @@
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="https://cdn-icons-png.flaticon.com/512/2382/2382461.png" class="card-img-top p-4" alt="Botes">
+        <img src="{% static 'img/botes.png' %}" class="card-img-top p-4" alt="Botes">
         <div class="card-body">
           <h5 class="card-title">Renta de Botes</h5>
           <p class="card-text text-muted">Navega y disfruta del mar con nuestros botes disponibles.</p>
@@ -52,7 +52,7 @@
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="card-img-top p-4" alt="Paquetes">
+        <img src="{% static 'img/paquetes.png' %}" class="card-img-top p-4" alt="Paquetes">
         <div class="card-body">
           <h5 class="card-title">Paquetes Turísticos</h5>
           <p class="card-text text-muted">Todo incluido para una experiencia completa y sin preocupaciones.</p>
@@ -65,7 +65,7 @@
 </section>
 
 <!-- Contacto -->
-<section id="contacto" class="bg-light py-5">
+<section id="contacto" class="bg-light py-5 reveal">
   <div class="container">
     <h2 class="text-center mb-4">Contáctanos</h2>
     <form class="col-md-8 mx-auto">
@@ -84,7 +84,7 @@
 </section>
 
 <!-- Sección de Preguntas Frecuentes -->
-<section id="faq" class="py-5 bg-light">
+<section id="faq" class="py-5 bg-light reveal">
   <div class="container">
     <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
 

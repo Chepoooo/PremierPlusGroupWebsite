@@ -144,14 +144,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #DEBUG = os.getenv("DEBUG") == "True"
 
 # CLOUDINARY_URL="cloudinary://API_KEY:API_SECRET@CLOUD_NAME"
-DEBUG = True
-SECRET_KEY = 'django-insecure-@0dyv*#4568g4c2sc+qk26pp3)ummjuhklc&_qd)kr(ltepc1i'
+#DEBUG = True
+#SECRET_KEY = 'django-insecure-@0dyv*#4568g4c2sc+qk26pp3)ummjuhklc&_qd)kr(ltepc1i'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'TU_CLOUD_NAME',
-    'API_KEY': 'TU_API_KEY',
-    'API_SECRET': 'TU_API_SECRET',
-}
+#CLOUDINARY_STORAGE = {
+    #'CLOUD_NAME': 'TU_CLOUD_NAME',
+    #'API_KEY': 'TU_API_KEY',
+    #'API_SECRET': 'TU_API_SECRET',
+#}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
