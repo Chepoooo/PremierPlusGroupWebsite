@@ -161,3 +161,369 @@ footer {
   border-top: 1px solid #f1f1f1;
   padding: 1.5rem;
 }
+
+
+
+/* === TARJETAS DE SERVICIOS con su titulo y los .html === */
+
+.section-title {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: #f5c518; /* Dorado similar a la "P" del logo */
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 1.5rem;
+}
+
+
+.card {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+.card-img-top.servicio-img {
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  border-bottom: 4px solid #007bff; /* puedes cambiar el color según la categoría */
+}
+
+.card:hover .card-img-top.servicio-img {
+  transform: scale(1.05);
+}
+
+/* Contenido */
+.card-body h5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.card-body .fw-bold {
+  font-size: 1.1rem;
+}
+
+/* Botón de WhatsApp */
+.card-body .btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #25D366;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.card-body .btn-success:hover {
+  background-color: #1eb85a;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+
+/* === SECCIONES DEL HOME (sin incluir Hero) === */
+
+/* --- Sección de Servicios --- */
+#servicios {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #f9f9f9;
+}
+
+#servicios h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+#servicios h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #007bff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Cartas de servicios */
+#servicios .card {
+  border: none;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+#servicios .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#servicios .card-img-top {
+  height: 150px;
+  object-fit: contain;
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+#servicios .card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+#servicios .card-title {
+  font-weight: 700;
+  color: #333;
+}
+
+#servicios .card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#servicios .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 8px 18px;
+  transition: all 0.3s ease;
+}
+
+#servicios .btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* --- Sección de Contacto --- */
+#contacto {
+  background: linear-gradient(180deg, #ffffff, #f1f5f9);
+  padding: 80px 0;
+}
+
+#contacto h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+#contacto h2::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Formulario */
+#contacto form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+#contacto form:hover {
+  transform: translateY(-5px);
+}
+
+#contacto input,
+#contacto textarea {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
+}
+
+/* Botón de envío */
+#contacto button {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+#contacto button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* --- Sección de FAQ --- */
+#faq {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+#faq h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#faq h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.accordion-item {
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.accordion-button {
+  font-weight: 600;
+  color: #222;
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.accordion-body {
+  color: #555;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+
+
+/* === NAVBAR PERSONALIZADO === */
+
+.navbar {
+  background-color: #111 !important;
+  padding: 12px 0;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff !important;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Letra "P" destacada en amarillo */
+.brand-highlight {
+  color: #FFD700; /* Amarillo dorado */
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+/* Texto del nombre */
+.brand-text {
+  color: #fff;
+}
+
+/* Espaciado entre links */
+.nav-link {
+  color: #ddd !important;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover de los enlaces */
+.nav-link:hover {
+  color: #FFD700 !important;
+  transform: translateY(-2px);
+}
+
+/* Estado activo */
+.nav-link.active {
+  color: #FFD700 !important;
+  font-weight: 600;
+}
+
+/* Botón del menú móvil */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
