@@ -14,11 +14,10 @@ from pathlib import Path
 from django.conf import settings
 from django.conf.urls.static import static
 import os
-import cloudinary
+#import cloudinary
 from dotenv import load_dotenv
 load_dotenv()
-
-import cloudinary
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,14 +44,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
-    'cloudinary',
+    #'cloudinary_storage',
+    #'cloudinary',
+    'modeltranslation',
     'servicios',
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -153,11 +155,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
     #'API_SECRET': 'TU_API_SECRET',
 #}
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
 
+LANGUAGES = [
+    ('es', _('Español')),
+    ('en', _('English')),
+    ('fr', _('Français')),
+]
 
+LANGUAGE_CODE = 'es'  # idioma por defecto
+
+USE_I18N = True
+USE_L10N = True
+
+# Ruta donde se guardarán los archivos de traducción (.po y .mo)
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]

@@ -1,14 +1,14 @@
-
-from datetime import datetime
-from django.contrib import admin
-from .models import Servicio
-from .models import Servicio, FAQ
-from django.utils.html import format_html
 from datetime import timedelta
+from django.contrib import admin
 from django.utils import timezone
+from django.utils.html import format_html
+from .models import Servicio, FAQ
 
+
+
+# === Filtros personalizados ===
 class RangoPrecioFilter(admin.SimpleListFilter):
-    title = 'Rango de precios'  # Texto que aparece en el panel lateral
+    title = 'Rango de precios'
     parameter_name = 'rango_precio'
 
     def lookups(self, request, model_admin):
@@ -26,7 +26,8 @@ class RangoPrecioFilter(admin.SimpleListFilter):
         if self.value() == 'alto':
             return queryset.filter(precio__gt=500)
         return queryset
-    
+
+
 class FechaCreacionFilter(admin.SimpleListFilter):
     title = 'Fecha de creación'
     parameter_name = 'fecha_creacion_rango'
@@ -41,30 +42,30 @@ class FechaCreacionFilter(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         hoy = timezone.now()
         if self.value() == 'semana':
-            hace_una_semana = hoy - timedelta(days=7)
-            return queryset.filter(fecha_creacion__gte=hace_una_semana)
+            return queryset.filter(fecha_creacion__gte=hoy - timedelta(days=7))
         if self.value() == 'mes':
-            hace_un_mes = hoy - timedelta(days=30)
-            return queryset.filter(fecha_creacion__gte=hace_un_mes)
+            return queryset.filter(fecha_creacion__gte=hoy - timedelta(days=30))
         if self.value() == 'anio':
-            hace_un_anio = hoy - timedelta(days=365)
-            return queryset.filter(fecha_creacion__gte=hace_un_anio)
+            return queryset.filter(fecha_creacion__gte=hoy - timedelta(days=365))
         return queryset
 
+
+# === Configuración del panel de administración ===
 @admin.register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
     list_display = (
-        'titulo', 
-        'categoria', 
-        'precio', 
-        'disponible', 
-        'imagen_preview', 
+        'titulo',
+        'categoria',
+        'tipo_vehiculo',
+        'precio',
+        'disponible',
+        'imagen_preview',
         'fecha_creacion'
     )
     list_filter = (
-        'categoria', 
+        'categoria',
+        'tipo_vehiculo',
         'disponible',
-        'precio',  # Rango de precios,
         RangoPrecioFilter,
         FechaCreacionFilter
     )
@@ -77,9 +78,9 @@ class ServicioAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Información general', {
-            'fields': ('titulo', 'descripcion', 'categoria', 'precio', 'disponible')
+            'fields': ('titulo', 'descripcion', 'categoria', 'tipo_vehiculo', 'precio', 'disponible')
         }),
-        ('Imagen', {
+        ('Imagen principal', {
             'fields': ('imagen', 'imagen_preview'),
         }),
         ('Fechas de control', {
@@ -90,13 +91,14 @@ class ServicioAdmin(admin.ModelAdmin):
     def imagen_preview(self, obj):
         if obj.imagen:
             return format_html(
-                '<img src="{}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px;" />', 
+                '<img src="{}" style="width:70px; height:70px; object-fit:cover; border-radius:6px;" />',
                 obj.imagen.url
             )
         return "Sin imagen"
     imagen_preview.short_description = 'Vista previa'
 
 
+# === FAQ ===
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
     list_display = ('pregunta', 'activo', 'fecha_creacion')

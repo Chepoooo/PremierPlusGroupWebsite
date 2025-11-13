@@ -1,10 +1,37 @@
 {% extends 'base.html' %}
 {% block title %}Botes | Renta Fácil{% endblock %}
 {% block content %}
+{% load i18n %}
 <div class="container py-5">
   <div class="section-title text-center">
-    <h2>Botes</h2>
+    <h2>{% trans "Botes" %}</h2>
   </div>
+
+<form method="get" class="mb-4 bg-light p-3 rounded shadow-sm">
+  <div class="row g-3 align-items-end">
+
+    <div class="col-md-4">
+      <label class="form-label fw-semibold text-secondary">{% trans "Precio mínimo" %}</label>
+      <input type="number" name="precio_min" value="{{ precio_min|default:'' }}" placeholder="{% trans 'Ej. 100' %}"
+             class="form-control" min="0" step="0.01">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label fw-semibold text-secondary">{% trans "Precio máximo" %}</label>
+      <input type="number" name="precio_max" value="{{ precio_max|default:'' }}" placeholder="{% trans 'Ej. 500' %}"
+             class="form-control" min="0" step="0.01">
+    </div>
+
+    <div class="col-md-4 d-flex gap-2">
+      <button type="submit" class="btn btn-primary w-100">{% trans "Filtrar" %}</button>
+      <a href="?" class="btn btn-outline-secondary w-100">{% trans "Limpiar" %}</a>
+    </div>
+
+  </div>
+</form>
+
+
+
   <div class="row">
     {% for servicio in page_obj %}
       <div class="col-md-4 mb-4">
@@ -18,13 +45,13 @@
             {% endif %}
             <a href="https://wa.me/584121234567?text=Hola%20estoy%20interesado%20en%20el%20apartamento%20{{ servicio.titulo }}" 
               class="btn btn-success">
-              <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+              <i class="fab fa-whatsapp"></i> {% trans "Contactar por WhatsApp" %}
             </a>
           </div>
         </div>
       </div>
     {% empty %}
-      <p>No hay botes disponibles actualmente.</p>
+      <p>{% trans "No hay botes disponibles actualmente." %}</p>
     {% endfor %}
   </div>
 
@@ -33,7 +60,7 @@
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Anterior" %}</a>
         </li>
       {% endif %}
       {% for num in page_obj.paginator.page_range %}
@@ -43,7 +70,7 @@
       {% endfor %}
       {% if page_obj.has_next %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Siguiente" %}</a>
         </li>
       {% endif %}
     </ul>

@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 {% block title %}Inicio | Renta Fácil{% endblock %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <!-- Hero -->
 <section id="inicio" class="hero">
   <div>
-    <h1 class="display-4">Explora, Renta y Disfruta</h1>
-    <p class="lead">Tu experiencia de viaje comienza aquí 🚗🏠🚤🌴</p>
-    <a href="#servicios" class="btn btn-light btn-lg mt-3">Ver Servicios</a>
+    <h1 class="display-4">{% trans "Explora, Renta y Disfruta" %}</h1>
+    <p class="lead">{% trans "Tu experiencia de viaje comienza aquí 🚗🏠🚤🌴" %}</p>
+    <a href="#servicios" class="btn btn-light btn-lg mt-3">{% trans "Ver Servicios" %}</a>
   </div>
 </section>
 
+
 <!-- Servicios -->
 <section id="servicios" class="container my-5 reveal">
-  <h2 class="text-center mb-5">Nuestros Servicios</h2>
+  <h2 class="text-center mb-5">{% trans "Nuestros Servicios" %}</h2>
   <div class="row text-center">
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="{% static 'img/vehiculo.png' %}" class="card-img-top p-4" alt="Vehículos">
+        <img src="{% static 'img/vehiculo.png' %}" class="card-img-top p-4" alt="{% trans 'Vehículos' %}">
         <div class="card-body">
-          <h5 class="card-title">Renta de Vehículos</h5>
-          <p class="card-text text-muted">Explora con libertad. Encuentra el auto ideal para tu viaje.</p>
-          <a href="{% url 'vehiculos' %}" class="btn btn-primary">Ver más</a>
+          <h5 class="card-title">{% trans "Vehículos" %}</h5>
+          <p class="card-text text-muted">{% trans "Explora con libertad. Encuentra el auto ideal para tu viaje." %}</p>
+          <a href="{% url 'vehiculos' %}" class="btn btn-primary">{% trans "Ver más" %}</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-3 mb-4">
       <div class="card h-100 shadow-sm border-0">
-        <img src="{% static 'img/departamento.png' %}" class="card-img-top p-4" alt="Apartamentos">
+        <img src="{% static 'img/departamento.png' %}" class="card-img-top p-4" alt="{% trans 'Apartamentos' %}">
         <div class="card-body">
-          <h5 class="card-title">Renta de Apartamentos</h5>
-          <p class="card-text text-muted">Encuentra el lugar perfecto para hospedarte durante tus vacaciones.</p>
-          <a href="{% url 'apartamentos' %}" class="btn btn-primary">Ver más</a>
+          <h5 class="card-title">{% trans "Propiedades" %}</h5>
+          <p class="card-text text-muted">{% trans "Encuentra el lugar perfecto para hospedarte durante tus vacaciones." %}</p>
+          <a href="{% url 'apartamentos' %}" class="btn btn-primary">{% trans "Ver más" %}</a>
         </div>
       </div>
     </div>
@@ -43,9 +45,9 @@
       <div class="card h-100 shadow-sm border-0">
         <img src="{% static 'img/botes.png' %}" class="card-img-top p-4" alt="Botes">
         <div class="card-body">
-          <h5 class="card-title">Renta de Botes</h5>
-          <p class="card-text text-muted">Navega y disfruta del mar con nuestros botes disponibles.</p>
-          <a href="{% url 'botes' %}" class="btn btn-primary">Ver más</a>
+          <h5 class="card-title">{% trans "Botes" %}</h5>
+          <p class="card-text text-muted">{% trans "Navega y disfruta del mar con nuestros botes disponibles." %}</p>
+          <a href="{% url 'botes' %}" class="btn btn-primary">{% trans "Ver más" %}</a>
         </div>
       </div>
     </div>
@@ -54,9 +56,9 @@
       <div class="card h-100 shadow-sm border-0">
         <img src="{% static 'img/paquetes.png' %}" class="card-img-top p-4" alt="Paquetes">
         <div class="card-body">
-          <h5 class="card-title">Paquetes Turísticos</h5>
-          <p class="card-text text-muted">Todo incluido para una experiencia completa y sin preocupaciones.</p>
-          <a href="{% url 'paquetes' %}" class="btn btn-primary">Ver más</a>
+          <h5 class="card-title">{% trans "Paquetes Turísticos" %}</h5>
+          <p class="card-text text-muted">{% trans "Todo incluido para una experiencia completa y sin preocupaciones." %}</p>
+          <a href="{% url 'paquetes' %}" class="btn btn-primary">{% trans "Ver más" %}</a>
         </div>
       </div>
     </div>
@@ -67,18 +69,18 @@
 <!-- Contacto -->
 <section id="contacto" class="bg-light py-5 reveal">
   <div class="container">
-    <h2 class="text-center mb-4">Contáctanos</h2>
+    <h2 class="text-center mb-4">{% trans "Contáctanos" %}</h2>
     <form class="col-md-8 mx-auto">
       <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Tu nombre">
+        <input type="text" class="form-control" placeholder="{% trans 'Tu nombre' %}">
       </div>
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Tu correo electrónico">
+        <input type="email" class="form-control" placeholder="{% trans 'Tu correo electrónico' %}">
       </div>
       <div class="mb-3">
-        <textarea class="form-control" rows="4" placeholder="Tu mensaje"></textarea>
+        <textarea class="form-control" rows="4" placeholder="{% trans 'Tu mensaje' %}"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary w-100">Enviar</button>
+      <button type="submit" class="btn btn-primary w-100">{% trans "Enviar" %}</button>
     </form>
   </div>
 </section>
@@ -86,7 +88,7 @@
 <!-- Sección de Preguntas Frecuentes -->
 <section id="faq" class="py-5 bg-light reveal">
   <div class="container">
-    <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
+    <h2 class="text-center mb-4">{% trans "Preguntas Frecuentes" %}</h2>
 
     <div class="accordion" id="faqAccordion">
       {% for faq in faqs %}
@@ -106,8 +108,35 @@
         </div>
       </div>
       {% empty %}
-        <p class="text-center">No hay preguntas frecuentes disponibles en este momento.</p>
+        <p class="text-center">{% trans "No hay preguntas frecuentes disponibles en este momento." %}</p>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     SECCIÓN SOCIAL MEDIA
+========================= -->
+<section class="social-section py-5 text-center bg-light mt-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4">{% trans "Síguenos en nuestras redes" %}</h2>
+    <p class="text-muted mb-5">{% trans "Mantente al día con nuestras últimas ofertas y novedades." %}</p>
+
+    <div class="d-flex justify-content-center gap-4">
+      <!-- Instagram -->
+      <a href="#" target="_blank" class="social-link">
+        <i class="bi bi-instagram"></i>
+      </a>
+
+      <!-- Ejemplo para agregar más redes luego -->
+      <!--
+      <a href="#" target="_blank" class="social-link">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="#" target="_blank" class="social-link">
+        <i class="bi bi-tiktok"></i>
+      </a>
+      -->
     </div>
   </div>
 </section>
