@@ -1,14 +1,13 @@
-from modeltranslation.translator import register, TranslationOptions
+# translation.py
+from modeltranslation.translator import TranslationOptions, register
 from .models import Servicio, FAQ
 
-# Traducciones para Servicio
+
+@register(Servicio)
 class ServicioTranslationOptions(TranslationOptions):
-    fields = ('titulo', 'descripcion')  # los campos que quieres traducir
+    fields = ('titulo', 'descripcion',)
 
-translator.register(Servicio, ServicioTranslationOptions)
 
-# Traducciones para FAQ
+@register(FAQ)
 class FAQTranslationOptions(TranslationOptions):
-    fields = ('pregunta', 'respuesta')
-
-translator.register(FAQ, FAQTranslationOptions)
+    fields = ('pregunta', 'respuesta',)

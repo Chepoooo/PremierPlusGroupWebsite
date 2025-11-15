@@ -70,3 +70,4 @@ def botes(request):
 def paquetes(request):
     context = filtrar_servicios(request, 'paquete')
     return render(request, 'paquetes.html', context)
+

@@ -4,15 +4,16 @@
 {% load i18n %}
 {% block content %}
 
+
 <!-- Hero -->
 <section id="inicio" class="hero">
-  <div>
+  <div class="contenido-hero">
+    <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-hero">
     <h1 class="display-4">{% trans "Explora, Renta y Disfruta" %}</h1>
     <p class="lead">{% trans "Tu experiencia de viaje comienza aquí 🚗🏠🚤🌴" %}</p>
     <a href="#servicios" class="btn btn-light btn-lg mt-3">{% trans "Ver Servicios" %}</a>
   </div>
 </section>
-
 
 <!-- Servicios -->
 <section id="servicios" class="container my-5 reveal">

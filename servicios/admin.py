@@ -2,9 +2,9 @@ from datetime import timedelta
 from django.contrib import admin
 from django.utils import timezone
 from django.utils.html import format_html
+from adminsortable2.admin import SortableAdminMixin
+from modeltranslation.admin import TranslationAdmin
 from .models import Servicio, FAQ
-
-
 
 # === Filtros personalizados ===
 class RangoPrecioFilter(admin.SimpleListFilter):
@@ -27,7 +27,6 @@ class RangoPrecioFilter(admin.SimpleListFilter):
             return queryset.filter(precio__gt=500)
         return queryset
 
-
 class FechaCreacionFilter(admin.SimpleListFilter):
     title = 'Fecha de creación'
     parameter_name = 'fecha_creacion_rango'
@@ -49,11 +48,11 @@ class FechaCreacionFilter(admin.SimpleListFilter):
             return queryset.filter(fecha_creacion__gte=hoy - timedelta(days=365))
         return queryset
 
-
-# === Configuración del panel de administración ===
+# === Admin Servicio ===
 @admin.register(Servicio)
-class ServicioAdmin(admin.ModelAdmin):
+class ServicioAdmin(SortableAdminMixin, TranslationAdmin):
     list_display = (
+        'order',
         'titulo',
         'categoria',
         'tipo_vehiculo',
@@ -62,6 +61,7 @@ class ServicioAdmin(admin.ModelAdmin):
         'imagen_preview',
         'fecha_creacion'
     )
+    list_display_links = ('titulo',)
     list_filter = (
         'categoria',
         'tipo_vehiculo',
@@ -71,12 +71,15 @@ class ServicioAdmin(admin.ModelAdmin):
     )
     search_fields = ('titulo', 'descripcion')
     list_editable = ('disponible',)
-    ordering = ('categoria', 'titulo')
     list_per_page = 10
+    ordering = ['order']  # asegura que adminsortable2 funcione correctamente
 
     readonly_fields = ('fecha_creacion', 'fecha_actualizacion', 'imagen_preview')
 
     fieldsets = (
+        ('Mover', {
+            'fields': ('order',),
+        }),
         ('Información general', {
             'fields': ('titulo', 'descripcion', 'categoria', 'tipo_vehiculo', 'precio', 'disponible')
         }),
@@ -97,10 +100,9 @@ class ServicioAdmin(admin.ModelAdmin):
         return "Sin imagen"
     imagen_preview.short_description = 'Vista previa'
 
-
-# === FAQ ===
+# === Admin FAQ ===
 @admin.register(FAQ)
-class FAQAdmin(admin.ModelAdmin):
+class FAQAdmin(TranslationAdmin):
     list_display = ('pregunta', 'activo', 'fecha_creacion')
     list_filter = ('activo',)
     search_fields = ('pregunta', 'respuesta')

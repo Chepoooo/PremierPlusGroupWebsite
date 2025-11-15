@@ -38,15 +38,16 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'adminsortable2',
     #'cloudinary_storage',
     #'cloudinary',
-    'modeltranslation',
     'servicios',
     
 ]
@@ -168,10 +169,23 @@ LANGUAGES = [
     ('fr', _('Français')),
 ]
 
-LANGUAGE_CODE = 'es'  # idioma por defecto
+# Idioma por defecto
+LANGUAGE_CODE = 'es'
 
 USE_I18N = True
 USE_L10N = True
+
+# Evita conflictos de traducción en el admin
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
+MODELTRANSLATION_TRANSLATE_ADMIN = False
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+# Para producción (si no lo tienes)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Ruta donde se guardarán los archivos de traducción (.po y .mo)
 LOCALE_PATHS = [

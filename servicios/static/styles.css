@@ -18,36 +18,7 @@ main, section:not(.hero) {
     border-radius: 5px;
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    background-color: #007BFF;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    /* Tamaño grande tipo portada */
-    min-height: 100vh;
-    width: 100%;
-
-    /* Evita que el navbar lo tape */
-    padding-top: 80px;
-
-    /* Transición suave si se cambia el fondo en el futuro */
-    transition: background 0.3s ease-in-out;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-}
 
 /* --- FOOTER FIJO ABAJO --- */
 footer {
@@ -78,39 +49,7 @@ footer {
 }
 
 /* --- RESPONSIVE HERO --- */
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 70px;
-        min-height: 90vh;
-    }
 
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
-
-/* === HERO ANIMATION === */
-.hero {
-  background: #007BFF;
-  color: white;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-}
-
-.hero.show {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* === GENERAL SCROLL ANIMATIONS === */
 .reveal {
@@ -125,6 +64,9 @@ footer {
 }
 
 
+
+/* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === */
+/* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === */
 /* === ANIMACIÓN DE TARJETAS === */
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
