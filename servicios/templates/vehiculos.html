@@ -4,100 +4,99 @@
 {% load i18n %}
 
 <div class="container py-5">
-  <div class="section-title text-center">
-    <h2>{% trans "Vehículos" %}</h2>
-  </div>
 
- <form method="get" class="mb-4 bg-light p-3 rounded shadow-sm">
-  <div class="row g-3 align-items-end">
-
-    <!-- Tipo de vehículo -->
-    <div class="col-md-3">
-      <label class="form-label fw-semibold text-secondary">{% trans "Tipo de vehículo" %}</label>
-      <select name="tipo" class="form-select">
-        <option value="">{% trans "Todos" %}</option>
-        <option value="suv" {% if tipo_seleccionado == 'suv' %}selected{% endif %}>{% trans "SUV" %}</option>
-        <option value="sedan" {% if tipo_seleccionado == 'sedan' %}selected{% endif %}>{% trans "Sedán" %}</option>
-        <option value="compacto" {% if tipo_seleccionado == 'compacto' %}selected{% endif %}>{% trans "Compacto" %}</option>
-        <option value="muscle" {% if tipo_seleccionado == 'muscle' %}selected{% endif %}>{% trans "Muscle" %}</option>
-        <option value="truck" {% if tipo_seleccionado == 'truck' %}selected{% endif %}>{% trans "Truck" %}</option>
-        <option value="descapotable" {% if tipo_seleccionado == 'descapotable' %}selected{% endif %}>{% trans "Descapotable" %}</option>
-        <option value="van" {% if tipo_seleccionado == 'van' %}selected{% endif %}>{% trans "Van" %}</option>
-        <option value="electrico" {% if tipo_seleccionado == 'electrico' %}selected{% endif %}>{% trans "Eléctrico" %}</option>
-        <option value="deportivo" {% if tipo_seleccionado == 'deportivo' %}selected{% endif %}>{% trans "Deportivo" %}</option>
-        <option value="hibrido" {% if tipo_seleccionado == 'hibrido' %}selected{% endif %}>{% trans "Híbrido" %}</option>
-      </select>
+    <div class="section-title text-center mb-4">
+        <h2 class="fw-bold">{% trans "Vehículos" %}</h2>
     </div>
 
-    <!-- Precio mínimo -->
-    <div class="col-md-3">
-      <label class="form-label fw-semibold text-secondary">{% trans "Precio mínimo" %}</label>
-      <input type="number" name="precio_min" value="{{ precio_min|default:'' }}" placeholder="{% trans 'Ej. 100' %}"
-             class="form-control" min="0" step="0.01">
-    </div>
+    <!-- FILTROS -->
+    <form method="get" class="mb-4 bg-light p-3 rounded shadow-sm">
+        <div class="row g-3 align-items-end">
 
-    <!-- Precio máximo -->
-    <div class="col-md-3">
-      <label class="form-label fw-semibold text-secondary">{% trans "Precio máximo" %}</label>
-      <input type="number" name="precio_max" value="{{ precio_max|default:'' }}" placeholder="{% trans 'Ej. 500' %}"
-             class="form-control" min="0" step="0.01">
-    </div>
+            <!-- Tipo de vehículo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Tipo de vehículo" %}</label>
+                <select name="tipo" class="form-select">
+                    <option value="">{% trans "Todos" %}</option>
+                    <option value="suv" {% if tipo_seleccionado == 'suv' %}selected{% endif %}>SUV</option>
+                    <option value="sedan" {% if tipo_seleccionado == 'sedan' %}selected{% endif %}>Sedán</option>
+                    <option value="compacto" {% if tipo_seleccionado == 'compacto' %}selected{% endif %}>Compacto</option>
+                    <option value="descapotable" {% if tipo_seleccionado == 'descapotable' %}selected{% endif %}>Descapotable</option>
+                    <option value="exclusive" {% if tipo_seleccionado == 'exclusive' %}selected{% endif %}>Exclusive</option>
+                    <option value="family" {% if tipo_seleccionado == 'family' %}selected{% endif %}>Family</option>
+                </select>
+            </div>
 
-    <!-- Botones -->
-    <div class="col-md-3 d-flex gap-2">
-      <button type="submit" class="btn btn-primary w-100">{% trans "Filtrar" %}</button>
-      <a href="{% url 'vehiculos' %}" class="btn btn-outline-secondary w-100">{% trans "Limpiar" %}</a>
-    </div>
+            <!-- Precio mínimo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Precio mínimo" %}</label>
+                <input type="number" name="precio_min" value="{{ precio_min|default:'' }}" class="form-control"
+                       placeholder="{% trans 'Ej. 100' %}" min="0" step="0.01">
+            </div>
 
-  </div>
-</form>
+            <!-- Precio máximo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Precio máximo" %}</label>
+                <input type="number" name="precio_max" value="{{ precio_max|default:'' }}" class="form-control"
+                       placeholder="{% trans 'Ej. 500' %}" min="0" step="0.01">
+            </div>
 
-<div class="container py-5">
-  <div class="section-title text-center">
-    <h2>{% trans "Vehículos" %}</h2>
-  </div>
-  <div class="row">
-    {% for servicio in page_obj %}
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="{{ servicio.imagen.url }}" class="card-img-top servicio-img" alt="{{ servicio.titulo }}">
-          <div class="card-body">
-            <h5>{{ servicio.titulo }}</h5>
-            <p>{{ servicio.descripcion|truncatewords:20 }}</p>
-            {% if servicio.precio %}
-              <p class="fw-bold text-primary">${{ servicio.precio }}</p>
-            {% endif %}
-            <a href="https://wa.me/message/B6X733YR24MSF1{{ servicio.titulo }}" 
-              class="btn btn-success">
-              <i class="fab fa-whatsapp"></i> {% trans "Contactar por WhatsApp" %}
-            </a>
-          </div>
+            <!-- Botones -->
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">{% trans "Filtrar" %}</button>
+                <a href="{% url 'vehiculos' %}" class="btn btn-outline-secondary w-100">{% trans "Limpiar" %}</a>
+            </div>
+
         </div>
-      </div>
-    {% empty %}
-      <p>{% trans "No hay vehículos disponibles actualmente." %}</p>
-    {% endfor %}
-  </div>
+    </form>
 
-  <!-- Paginación -->
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      {% if page_obj.has_previous %}
-        <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Anterior" %}</a>
-        </li>
-      {% endif %}
-      {% for num in page_obj.paginator.page_range %}
-        <li class="page-item {% if page_obj.number == num %}active{% endif %}">
-          <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-        </li>
-      {% endfor %}
-      {% if page_obj.has_next %}
-        <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Siguiente" %}</a>
-        </li>
-      {% endif %}
-    </ul>
-  </nav>
+   <!-- TARJETAS -->
+    <div class="row">
+        {% for servicio in page_obj %}
+        <div class="col-md-4 mb-4">
+            <div class="card servicio-card h-100">
+
+                <img src="{{ servicio.imagen.url }}" class="card-img-top servicio-img" alt="{{ servicio.titulo }}">
+
+                <div class="card-body">
+                    <h5 class="servicio-titulo">{{ servicio.titulo }}</h5>
+                    <p class="servicio-descripcion">{{ servicio.descripcion|truncatewords:20 }}</p>
+
+                    {% if servicio.precio %}
+                    <p class="servicio-precio">${{ servicio.precio }}</p>
+                    {% endif %}
+
+                    <a href="#" class="btn-contactar">{% trans "Contactarnos" %}</a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <p class="text-center py-5">{% trans "No hay propiedades disponibles actualmente." %}</p>
+        {% endfor %}
+    </div>
+
+    <!-- PAGINACIÓN -->
+    <div class="pagination justify-content-center mt-4">
+        <span class="step-links">
+
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; {% trans "Primera" %}</a>
+                <a href="?page={{ page_obj.previous_page_number }}">{% trans "Anterior" %}</a>
+            {% endif %}
+
+            <span class="current mx-2">
+                {% trans "Página" %} {{ page_obj.number }} {% trans "de" %} {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">{% trans "Siguiente" %}</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Última" %} &raquo;</a>
+            {% endif %}
+
+        </span>
+    </div>
+
 </div>
+
 {% endblock %}

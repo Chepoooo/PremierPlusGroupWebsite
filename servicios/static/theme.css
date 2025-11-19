@@ -1,0 +1,32 @@
+/* ==========================
+   NAVBAR: Degradado Azul → Negro
+========================== */
+.navbar {
+    background: linear-gradient(90deg, rgb(19, 45, 107), #000000) !important;
+    padding: 0.8rem 0;
+}
+
+/* Texto de marca */
+.navbar .navbar-brand .brand-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* La P dorada */
+.navbar .brand-highlight {
+    background: linear-gradient(90deg, rgb(251,169,25), #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 900;
+}
+
+/* Links */
+.navbar .nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: rgb(251,169,25) !important;
+}

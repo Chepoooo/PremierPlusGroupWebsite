@@ -2,7 +2,7 @@
 
 /* HERO CON IMAGEN DE FONDO */
 .hero {
-    background-image: url("img/ejemplo1.png"); /* ruta de la imagen del hero */
+    background-image: url("img/hero2.png"); /* ruta de la imagen del hero */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@
 .logo-hero {
     display: block;
     margin: 0 auto 20px auto; /* centrado horizontal y separación debajo */
-    max-width: 150px;
+    max-width: 200px;
     height: auto;
 
     /* Transición suave para hover */

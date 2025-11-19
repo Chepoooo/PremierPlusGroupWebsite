@@ -14,13 +14,9 @@ class Servicio(models.Model):
     TIPOS_VEHICULO = [
         ('suv', 'SUV'),
         ('compacto', 'Compacto'),
-        ('muscle', 'Muscle'),
         ('sedan', 'Sedan'),
-        ('van', 'Van'),
-        ('electrico', 'Eléctrico'),
-        ('deportivo', 'Deportivo'),
-        ('Hibrido', 'Híbrido'),
-        ('truck', 'Truck'),
+        ('exclusive', 'Exclusive'),
+        ('family', 'Family'),
         ('descapotable', 'Descapotable'),
         ('otro', 'Otro'),
     ]
