@@ -53,9 +53,8 @@ class FechaCreacionFilter(admin.SimpleListFilter):
 
 # === Admin Servicio ===
 @admin.register(Servicio)
-class ServicioAdmin(SortableAdminMixin, TranslationAdmin):
+class ServicioAdmin(TranslationAdmin):  # Eliminé SortableAdminMixin
     list_display = (
-        'order',
         'titulo',
         'categoria',
         'tipo_vehiculo',
@@ -75,14 +74,10 @@ class ServicioAdmin(SortableAdminMixin, TranslationAdmin):
     search_fields = ('titulo', 'descripcion')
     list_editable = ('disponible',)
     list_per_page = 10
-    ordering = ['order']  # asegura que adminsortable2 funcione correctamente
 
     readonly_fields = ('fecha_creacion', 'fecha_actualizacion', 'imagen_preview')
 
     fieldsets = (
-        ('Mover', {
-            'fields': ('order',),
-        }),
         ('Información general', {
             'fields': ('titulo', 'descripcion', 'categoria', 'tipo_vehiculo', 'precio', 'disponible')
         }),
@@ -102,6 +97,7 @@ class ServicioAdmin(SortableAdminMixin, TranslationAdmin):
             )
         return "Sin imagen"
     imagen_preview.short_description = 'Vista previa'
+
 
 # === Admin FAQ ===
 @admin.register(FAQ)
