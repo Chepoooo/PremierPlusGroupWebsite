@@ -103,6 +103,9 @@ LANGUAGES = [
     ('en', 'English'),
     ('fr', 'French'),
 ]
+
+SESSION_COOKIE_SECURE = True   # obligatorio si usas HTTPS
+CSRF_COOKIE_SECURE = True
 # -----------------------------
 # STATIC FILES
 # -----------------------------
