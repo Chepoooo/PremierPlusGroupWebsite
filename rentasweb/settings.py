@@ -82,6 +82,15 @@ DATABASES = {
     }
 }
 
+LANGUAGE_CODE = 'es'  # tu idioma principal
+
+USE_I18N = True
+
+LANGUAGES = [
+    ('es', 'Spanish'),
+    ('en', 'English'),
+    ('fr', 'French'),
+]
 # -----------------------------
 # STATIC FILES
 # -----------------------------
