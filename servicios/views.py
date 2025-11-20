@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+
+from rentasweb.rentasweb import settings
 from .models import Servicio, FAQ
 from django.shortcuts import redirect
 
@@ -72,5 +74,5 @@ def paquetes(request):
     return render(request, 'paquetes.html', context)
 
 def redirect_to_default_language(request):
-    # Cambia 'es' por el idioma que quieras como principal
-    return redirect('/es/')
+    language = request.LANGUAGE_CODE if hasattr(request, 'LANGUAGE_CODE') else settings.LANGUAGE_CODE
+    return redirect(f'/{language}/')
