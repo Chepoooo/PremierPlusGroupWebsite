@@ -3,7 +3,7 @@ python-dotenv==1.0.0
 gunicorn==21.2.0
 psycopg2-binary==2.9.9
 whitenoise==6.5.0
-django-modeltranslation==0.20.1
+django-modeltranslation==0.19.17
 django-admin-sortable2==1.0.14
 cloudinary==1.32.0
 Pillow==10.0.0
