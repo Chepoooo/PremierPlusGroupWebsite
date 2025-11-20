@@ -73,10 +73,15 @@ WSGI_APPLICATION = 'rentasweb.wsgi.application'
 # DATABASE — Railway PostgreSQL
 # -----------------------------
 #print("DATABASE_URL:", os.getenv("DATABASE_URL"))
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-}
-    
+if os.getenv("DEBUG") == "True":
+    DATABASES = {
+        "default": dj_database_url.config(default=os.getenv("DATABASE_URL_PUBLIC"))
+    }
+else:
+    # En producción usas la URL interna de Railway
+    DATABASES = {
+        "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    }
 
 
 
@@ -111,3 +116,5 @@ MEDIA_URL = '/media/'
 # DEFAULT PRIMARY KEY
 # -----------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['https://web-production-ec74c.up.railway.app']
