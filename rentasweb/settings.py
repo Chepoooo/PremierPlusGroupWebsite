@@ -2,23 +2,25 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()  # Carga variables desde .env
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-
+# -----------------------------
+# SECURITY
+# -----------------------------
+SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret')
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = [
-    os.getenv("ALLOWED_HOST", ""),
-    "127.0.0.1",
-    "localhost"
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOST", "").split(",") + ["127.0.0.1", "localhost"]
+
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv("CSRF_ORIGIN", "")
 ]
 
-# -------------------------------------------------------------
+# -----------------------------
 # APPS
-# -------------------------------------------------------------
+# -----------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,12 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Terceros
+    # Cloudinary
     'cloudinary',
     'cloudinary_storage',
 
-    # Tus apps
-    'rentas',
+    # Tu app
+    'servicios',
 ]
 
 MIDDLEWARE = [
@@ -65,9 +67,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rentasweb.wsgi.application'
 
-# -------------------------------------------------------------
-# DATABASE (RAILWAY PostgreSQL)
-# -------------------------------------------------------------
+# -----------------------------
+# DATABASE — Railway PostgreSQL
+# -----------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -79,54 +81,23 @@ DATABASES = {
     }
 }
 
-# -------------------------------------------------------------
-# PASSWORD VALIDATION
-# -------------------------------------------------------------
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-]
-
-# -------------------------------------------------------------
-# INTERNATIONALIZATION
-# -------------------------------------------------------------
-LANGUAGE_CODE = 'es'
-
-TIME_ZONE = 'America/Mexico_City'
-
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
-
-# -------------------------------------------------------------
+# -----------------------------
 # STATIC FILES
-# -------------------------------------------------------------
+# -----------------------------
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# -------------------------------------------------------------
-# CLOUDINARY CONFIG
-# -------------------------------------------------------------
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv("CLOUDINARY_CLOUD_NAME"),
-    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
-    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
-}
+# -----------------------------
+# MEDIA — Cloudinary
+# -----------------------------
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# -------------------------------------------------------------
-# MEDIA (SUBIDO A CLOUDINARY)
-# -------------------------------------------------------------
 MEDIA_URL = '/media/'
 
-# -------------------------------------------------------------
-# SECURITY (Producción)
-# -------------------------------------------------------------
-CSRF_TRUSTED_ORIGINS = [
-    os.getenv("CSRF_ORIGIN", "")
-]
-
+# -----------------------------
+# DEFAULT PRIMARY KEY
+# -----------------------------
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
