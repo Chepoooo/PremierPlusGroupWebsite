@@ -1,7 +1,5 @@
 from django.db import models
-from django.utils import timezone
-from django.db.models import Min, Max
-import json
+from django.db.models import Min
 
 class Servicio(models.Model):
     CATEGORIAS = [
@@ -37,7 +35,7 @@ class Servicio(models.Model):
     fecha_actualizacion = models.DateTimeField(auto_now=True)
 
     # Campo para ordenar
-    order = models.PositiveIntegerField(default=0)
+    order = models.IntegerField(default=0)  # ← Cambiado a IntegerField
 
     class Meta:
         ordering = ['order']
@@ -45,36 +43,11 @@ class Servicio(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             # Nuevo servicio → insertarlo al principio
-            min_order = Servicio.objects.aggregate(Min('order'))['order__min'] or 0
+            min_order = Servicio.objects.aggregate(Min('order'))['order__min']
+            if min_order is None:
+                min_order = 0
             self.order = min_order - 1
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.titulo
-
-
-class ImagenServicio(models.Model):
-    servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE, related_name='imagenes')
-    imagen = models.ImageField(upload_to='servicios/imagenes/')
-    order = models.PositiveIntegerField(default=0)  # ← NUEVO
-
-    class Meta:
-        ordering = ['order']   # ← IMPORTANTE
-
-    def __str__(self):
-        return f"{self.servicio.titulo} - Imagen"
-
-
-class FAQ(models.Model):
-    pregunta = models.CharField(max_length=255)
-    respuesta = models.TextField()
-    activo = models.BooleanField(default=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Pregunta Frecuente"
-        verbose_name_plural = "Preguntas Frecuentes"
-        ordering = ['-fecha_creacion']
-
-    def __str__(self):
-        return self.pregunta
