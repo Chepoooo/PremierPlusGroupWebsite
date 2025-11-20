@@ -4,7 +4,7 @@ import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
-
+DEBUG = os.getenv("DEBUG") == "True"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # -----------------------------
@@ -73,16 +73,24 @@ WSGI_APPLICATION = 'rentasweb.wsgi.application'
 # DATABASE — Railway PostgreSQL
 # -----------------------------
 #print("DATABASE_URL:", os.getenv("DATABASE_URL"))
-if os.getenv("DEBUG") == "True":
+if DEBUG:
+    print("➡ Usando base de datos PUBLICA para desarrollo local")
     DATABASES = {
-        "default": dj_database_url.config(default=os.getenv("DATABASE_URL_PUBLIC"))
+        "default": dj_database_url.config(
+            default=os.getenv("DATABASE_URL_PUBLIC"),
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
 else:
-    # En producción usas la URL interna de Railway
+    print("➡ Usando base de datos INTERNA desde Railway")
     DATABASES = {
-        "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
+        "default": dj_database_url.config(
+            default=os.getenv("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
-
 
 
 LANGUAGE_CODE = 'es'  # tu idioma principal
