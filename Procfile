@@ -1,1 +1,1 @@
-web: gunicorn rentasweb.wsgi
+web: python manage.py collectstatic && gunicorn rentasweb.wsgi

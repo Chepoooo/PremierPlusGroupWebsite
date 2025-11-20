@@ -1,3 +1,6 @@
+# Importar translations primero
+from .translation import *
+
 from datetime import timedelta
 from django.contrib import admin
 from django.utils import timezone
