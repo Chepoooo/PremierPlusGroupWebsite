@@ -6,5 +6,6 @@ dj-database-url
 whitenoise
 django-modeltranslation
 django-admin-sortable2
+django-cloudinary-storage
 cloudinary
 Pillow
