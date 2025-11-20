@@ -42,13 +42,13 @@
 
                 <div class="card-body">
                     <h5 class="servicio-titulo">{{ servicio.titulo }}</h5>
-                    <p class="servicio-descripcion">{{ servicio.descripcion|truncatewords:20 }}</p>
+                    <p class="servicio-descripcion">{{ servicio.descripcion|linebreaksbr }}</p>
 
                     {% if servicio.precio %}
                     <p class="servicio-precio">${{ servicio.precio }}</p>
                     {% endif %}
 
-                    <a href="#" class="btn-contactar">{% trans "Contactarnos" %}</a>
+                    <a href="https://wa.me/message/B6X733YR24MSF1" class="btn-contactar">{% trans "Contactarnos" %}</a>
                 </div>
             </div>
         </div>
@@ -58,26 +58,34 @@
         {% endfor %}
     </div>
 
-    <!-- PAGINACIÓN -->
-    <div class="pagination justify-content-center mt-4">
-        <span class="step-links">
+   <!-- PAGINACIÓN -->
+<div class="pagination justify-content-center mt-4">
+    <ul class="pagination">
 
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; {% trans "Primera" %}</a>
-                <a href="?page={{ page_obj.previous_page_number }}">{% trans "Anterior" %}</a>
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <span class="page-link">{{ num }}</span>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
             {% endif %}
+        {% endfor %}
 
-            <span class="current mx-2">
-                {% trans "Página" %} {{ page_obj.number }} {% trans "de" %} {{ page_obj.paginator.num_pages }}
-            </span>
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+            </li>
+        {% endif %}
 
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">{% trans "Siguiente" %}</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Última" %} &raquo;</a>
-            {% endif %}
-
-        </span>
-    </div>
-
+    </ul>
 </div>
 {% endblock %}
