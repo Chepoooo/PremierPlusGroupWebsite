@@ -8,4 +8,3 @@ django-modeltranslation
 django-admin-sortable2
 cloudinary
 Pillow
-dj-database-url
