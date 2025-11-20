@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Servicio, FAQ
-
+from django.shortcuts import redirect
 
 def home(request):
     faqs = FAQ.objects.filter(activo=True)
@@ -71,3 +71,6 @@ def paquetes(request):
     context = filtrar_servicios(request, 'paquete')
     return render(request, 'paquetes.html', context)
 
+def redirect_to_default_language(request):
+    # Cambia 'es' por el idioma que quieras como principal
+    return redirect('/es/')
