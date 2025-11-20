@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
-from rentasweb.rentasweb import settings
+from django.conf import settings
 from .models import Servicio, FAQ
 from django.shortcuts import redirect
 
