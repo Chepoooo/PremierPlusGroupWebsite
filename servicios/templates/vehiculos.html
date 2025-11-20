@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Vehículos | Renta Fácil{% endblock %}
+{% block content %}
+{% load i18n %}
+
+<div class="container py-5">
+
+    <div class="section-title text-center mb-4">
+        <h2 class="fw-bold">{% trans "Vehículos" %}</h2>
+    </div>
+
+    <!-- FILTROS -->
+    <form method="get" class="mb-4 bg-light p-3 rounded shadow-sm">
+        <div class="row g-3 align-items-end">
+
+            <!-- Tipo de vehículo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Tipo de vehículo" %}</label>
+                <select name="tipo" class="form-select">
+                    <option value="">{% trans "Todos" %}</option>
+                    <option value="suv" {% if tipo_seleccionado == 'suv' %}selected{% endif %}>SUV</option>
+                    <option value="sedan" {% if tipo_seleccionado == 'sedan' %}selected{% endif %}>Sedán</option>
+                    <option value="compacto" {% if tipo_seleccionado == 'compacto' %}selected{% endif %}>Compacto</option>
+                    <option value="descapotable" {% if tipo_seleccionado == 'descapotable' %}selected{% endif %}>Descapotable</option>
+                    <option value="exclusive" {% if tipo_seleccionado == 'exclusive' %}selected{% endif %}>Exclusive</option>
+                    <option value="family" {% if tipo_seleccionado == 'family' %}selected{% endif %}>Family</option>
+                </select>
+            </div>
+
+            <!-- Precio mínimo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Precio mínimo" %}</label>
+                <input type="number" name="precio_min" value="{{ precio_min|default:'' }}" class="form-control"
+                       placeholder="{% trans 'Ej. 100' %}" min="0" step="0.01">
+            </div>
+
+            <!-- Precio máximo -->
+            <div class="col-md-3">
+                <label class="form-label fw-semibold text-secondary">{% trans "Precio máximo" %}</label>
+                <input type="number" name="precio_max" value="{{ precio_max|default:'' }}" class="form-control"
+                       placeholder="{% trans 'Ej. 500' %}" min="0" step="0.01">
+            </div>
+
+            <!-- Botones -->
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">{% trans "Filtrar" %}</button>
+                <a href="{% url 'vehiculos' %}" class="btn btn-outline-secondary w-100">{% trans "Limpiar" %}</a>
+            </div>
+
+        </div>
+    </form>
+
+   <!-- TARJETAS -->
+    <div class="row">
+        {% for servicio in page_obj %}
+        <div class="col-md-4 mb-4">
+            <div class="card servicio-card h-100">
+
+                <img src="{{ servicio.imagen.url }}" class="card-img-top servicio-img" alt="{{ servicio.titulo }}">
+
+                <div class="card-body">
+                    <h5 class="servicio-titulo">{{ servicio.titulo }}</h5>
+                    <p class="servicio-descripcion">{{ servicio.descripcion|linebreaksbr }}</p>
+
+                    {% if servicio.precio %}
+                    <p class="servicio-precio">${{ servicio.precio }}</p>
+                    {% endif %}
+
+                    <a href="https://wa.me/message/B6X733YR24MSF1" class="btn-contactar">{% trans "Contactarnos" %}</a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <p class="text-center py-5">{% trans "No hay propiedades disponibles actualmente." %}</p>
+        {% endfor %}
+    </div>
+
+    <!-- PAGINACIÓN -->
+<div class="pagination justify-content-center mt-4">
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <span class="page-link">{{ num }}</span>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+            </li>
+        {% endif %}
+
+    </ul>
+</div>
+
+
+{% endblock %}

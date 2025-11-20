@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-12 20:27-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\rentasweb\settings.py:164
+msgid "Español"
+msgstr ""
+
+#: .\rentasweb\settings.py:165
+msgid "English"
+msgstr ""
+
+#: .\rentasweb\settings.py:166
+msgid "Français"
+msgstr ""
+
+#: .\servicios\templates\apartamentos.html:6 .\servicios\templates\home.html:36
+msgid "Propiedades"
+msgstr "Propriétés"
+
+#: .\servicios\templates\apartamentos.html:12
+#: .\servicios\templates\botes.html:13 .\servicios\templates\paquetes.html:14
+#: .\servicios\templates\vehiculos.html:33
+msgid "Precio mínimo"
+msgstr "Prix ​​minimum"
+
+#: .\servicios\templates\apartamentos.html:13
+#: .\servicios\templates\botes.html:14 .\servicios\templates\paquetes.html:15
+#: .\servicios\templates\vehiculos.html:34
+msgid "Ej. 100"
+msgstr "Exemple : 100"
+
+#: .\servicios\templates\apartamentos.html:18
+#: .\servicios\templates\botes.html:19 .\servicios\templates\paquetes.html:20
+#: .\servicios\templates\vehiculos.html:40
+msgid "Precio máximo"
+msgstr "Prix ​​maximum"
+
+#: .\servicios\templates\apartamentos.html:19
+#: .\servicios\templates\botes.html:20 .\servicios\templates\paquetes.html:21
+#: .\servicios\templates\vehiculos.html:41
+msgid "Ej. 500"
+msgstr "Exemple : 500"
+
+#: .\servicios\templates\apartamentos.html:24
+#: .\servicios\templates\botes.html:25 .\servicios\templates\paquetes.html:26
+#: .\servicios\templates\vehiculos.html:47
+msgid "Filtrar"
+msgstr "Filtre"
+
+#: .\servicios\templates\apartamentos.html:25
+#: .\servicios\templates\botes.html:26 .\servicios\templates\paquetes.html:27
+#: .\servicios\templates\vehiculos.html:48
+msgid "Limpiar"
+msgstr "Faire le ménage"
+
+#: .\servicios\templates\apartamentos.html:44
+#: .\servicios\templates\botes.html:47 .\servicios\templates\paquetes.html:47
+#: .\servicios\templates\vehiculos.html:71
+msgid "Contactar por WhatsApp"
+msgstr "Contacter par WhatsApp"
+
+#: .\servicios\templates\apartamentos.html:50
+msgid "No hay Propiedades disponibles actualmente."
+msgstr "Aucun bien n'est disponible pour le moment."
+
+#: .\servicios\templates\apartamentos.html:59
+#: .\servicios\templates\botes.html:62 .\servicios\templates\paquetes.html:62
+#: .\servicios\templates\vehiculos.html:86
+msgid "Anterior"
+msgstr "Ancien"
+
+#: .\servicios\templates\apartamentos.html:69
+#: .\servicios\templates\botes.html:72 .\servicios\templates\paquetes.html:72
+#: .\servicios\templates\vehiculos.html:96
+msgid "Siguiente"
+msgstr "Suivant"
+
+#: .\servicios\templates\base.html:25
+msgid "Toggle navigation"
+msgstr ""
+
+#: .\servicios\templates\base.html:31
+msgid "Inicio"
+msgstr "Accueil"
+
+#: .\servicios\templates\base.html:32
+msgid "Servicios"
+msgstr "Services"
+
+#: .\servicios\templates\base.html:33
+msgid "Contacto"
+msgstr "Contact"
+
+#: .\servicios\templates\base.html:34
+msgid "FAQ"
+msgstr "FAQ"
+
+#: .\servicios\templates\base.html:58
+msgid "Todos los derechos reservados."
+msgstr "Tous droits réservés."
+
+#: .\servicios\templates\botes.html:6 .\servicios\templates\home.html:47
+msgid "Botes"
+msgstr "Bateaux"
+
+#: .\servicios\templates\botes.html:53
+msgid "No hay botes disponibles actualmente."
+msgstr "Aucun bateau n'est disponible pour le moment."
+
+#: .\servicios\templates\home.html:9
+msgid "Explora, Renta y Disfruta"
+msgstr "Explorez, louez et profitez"
+
+#: .\servicios\templates\home.html:10
+msgid "Tu experiencia de viaje comienza aquí 🚗🏠🚤🌴"
+msgstr "Votre expérience de voyage commence ici 🚗🏠🚤🌴"
+
+#: .\servicios\templates\home.html:11
+msgid "Ver Servicios"
+msgstr "Voir les services"
+
+#: .\servicios\templates\home.html:18
+msgid "Nuestros Servicios"
+msgstr "Voir les services"
+
+#: .\servicios\templates\home.html:23 .\servicios\templates\home.html:25
+#: .\servicios\templates\vehiculos.html:7
+#: .\servicios\templates\vehiculos.html:56
+msgid "Vehículos"
+msgstr "Véhicules"
+
+#: .\servicios\templates\home.html:26
+msgid "Explora con libertad. Encuentra el auto ideal para tu viaje."
+msgstr ""
+
+#: .\servicios\templates\home.html:27 .\servicios\templates\home.html:38
+#: .\servicios\templates\home.html:49 .\servicios\templates\home.html:60
+msgid "Ver más"
+msgstr "Voir plus"
+
+#: .\servicios\templates\home.html:34
+msgid "Apartamentos"
+msgstr "Propriétés"
+
+#: .\servicios\templates\home.html:37
+msgid "Encuentra el lugar perfecto para hospedarte durante tus vacaciones."
+msgstr "Trouvez l'endroit idéal pour séjourner pendant vos vacances."
+
+#: .\servicios\templates\home.html:48
+msgid "Navega y disfruta del mar con nuestros botes disponibles."
+msgstr "Naviguez et profitez de la mer à bord de nos bateaux disponibles."
+
+#: .\servicios\templates\home.html:58 .\servicios\templates\paquetes.html:6
+msgid "Paquetes Turísticos"
+msgstr "Forfaits touristiques"
+
+#: .\servicios\templates\home.html:59
+msgid "Todo incluido para una experiencia completa y sin preocupaciones."
+msgstr "Tout est inclus pour une expérience complète et sans souci."
+
+#: .\servicios\templates\home.html:71
+msgid "Contáctanos"
+msgstr "Contactez-nous"
+
+#: .\servicios\templates\home.html:74
+msgid "Tu nombre"
+msgstr "ton nom"
+
+#: .\servicios\templates\home.html:77
+msgid "Tu correo electrónico"
+msgstr "Votre email"
+
+#: .\servicios\templates\home.html:80
+msgid "Tu mensaje"
+msgstr "Votre message"
+
+#: .\servicios\templates\home.html:82
+msgid "Enviar"
+msgstr "Envoyer"
+
+#: .\servicios\templates\home.html:90
+msgid "Preguntas Frecuentes"
+msgstr "Foire aux questions"
+
+#: .\servicios\templates\home.html:110
+msgid "No hay preguntas frecuentes disponibles en este momento."
+msgstr "Il n'existe pas de FAQ disponible pour le moment."
+
+#: .\servicios\templates\home.html:121
+msgid "Síguenos en nuestras redes"
+msgstr "Suivez-nous sur nos réseaux sociaux"
+
+#: .\servicios\templates\home.html:122
+msgid "Mantente al día con nuestras últimas ofertas y novedades."
+msgstr "Restez informé(e) de nos dernières offres et actualités."
+
+#: .\servicios\templates\paquetes.html:53
+msgid "No hay paquetes disponibles actualmente."
+msgstr "Aucun forfait n'est disponible pour le moment."
+
+#: .\servicios\templates\vehiculos.html:15
+msgid "Tipo de vehículo"
+msgstr "Type de véhicule"
+
+#: .\servicios\templates\vehiculos.html:17
+msgid "Todos"
+msgstr "Tous"
+
+#: .\servicios\templates\vehiculos.html:18
+msgid "SUV"
+msgstr "VUS"
+
+#: .\servicios\templates\vehiculos.html:19
+msgid "Sedán"
+msgstr "Sedan"
+
+#: .\servicios\templates\vehiculos.html:20
+msgid "Compacto"
+msgstr "Compact"
+
+#: .\servicios\templates\vehiculos.html:21
+msgid "Muscle"
+msgstr ""
+
+#: .\servicios\templates\vehiculos.html:22
+msgid "Truck"
+msgstr ""
+
+#: .\servicios\templates\vehiculos.html:23
+msgid "Descapotable"
+msgstr "décapotable"
+
+#: .\servicios\templates\vehiculos.html:24
+msgid "Van"
+msgstr ""
+
+#: .\servicios\templates\vehiculos.html:25
+msgid "Eléctrico"
+msgstr "électrique"
+
+#: .\servicios\templates\vehiculos.html:26
+msgid "Deportivo"
+msgstr "Sportif"
+
+#: .\servicios\templates\vehiculos.html:27
+msgid "Híbrido"
+msgstr "Hybride"
+
+#: .\servicios\templates\vehiculos.html:77
+msgid "No hay vehículos disponibles actualmente."
+msgstr "Aucun véhicule n'est actuellement disponible."

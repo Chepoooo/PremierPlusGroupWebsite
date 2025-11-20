@@ -1,0 +1,260 @@
+/* ============================
+   PALETA DE COLORES CORPORATIVOS
+   Premier Plus Group
+============================ */
+
+/* Variables globales */
+:root {
+    --azul-oscuro: rgb(19, 45, 107);      /* #132D6B */
+    --amarillo: rgb(251, 169, 25);        /* #FBA91A */
+    --negro: #000000;
+    --dorado: linear-gradient(90deg, #fff6cc, #d4af37, #fff);
+
+    --texto-claro: #ffffff;
+    --texto-oscuro: #111111;
+}
+
+/* ==============================
+   1. HERO (APLICADO A home.html)
+============================== */
+
+.hero {
+    background: var(--azul-oscuro);
+}
+
+.hero h1,
+.hero p {
+    color: white !important;
+}
+
+/* Botón amarillo corporativo */
+.hero .btn {
+    background-color: var(--amarillo) !important;
+    color: var(--negro) !important;
+    border: none;
+    font-weight: bold;
+}
+
+.hero .btn:hover {
+    background-color: rgb(230, 150, 15) !important;
+}
+
+/* Logo animación hover */
+.logo-hero {
+    transition: transform .3s ease;
+}
+
+.logo-hero:hover {
+    transform: scale(1.15);
+}
+
+/* ==============================
+   2. TARJETAS DE SERVICIOS
+============================== */
+.card-title {
+    color: var(--azul-oscuro) !important;
+}
+
+.btn-primary {
+    background-color: var(--azul-oscuro) !important;
+    border-color: var(--azul-oscuro) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--amarillo) !important;
+    color: var(--negro) !important;
+    border-color: var(--amarillo) !important;
+}
+
+.text-muted {
+    color: #555 !important;
+}
+
+/* ==============================
+   3. SECCIÓN CONTACTO
+============================== */
+
+#contacto h2 {
+    color: var(--azul-oscuro) !important;
+}
+
+#contacto button {
+    background-color: var(--azul-oscuro) !important;
+    border: none;
+}
+
+#contacto button:hover {
+    background-color: var(--amarillo) !important;
+    color: var(--negro) !important;
+}
+
+/* ==============================
+   4. FAQ
+============================== */
+
+#faq h2 {
+    color: var(--azul-oscuro) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--azul-oscuro) !important;
+    color: white !important;
+}
+
+.accordion-button.collapsed:hover {
+    background-color: rgba(19, 45, 107, 0.1) !important;
+}
+
+/* ==============================
+   5. SOCIAL MEDIA
+============================== */
+
+.social-link {
+    font-size: 2rem;
+    color: var(--azul-oscuro);
+    transition: transform .3s ease, color .3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.2);
+    color: var(--amarillo);
+}
+
+
+/* ==========================
+   BOTÓN DEL HERO (DORADO → BLANCO)
+========================== */
+
+.btn-hero {
+    background: linear-gradient(90deg, var(--amarillo), #ffffff);
+    color: var(--negro);
+    border: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    transition: transform .3s ease, box-shadow .3s ease;
+    text-decoration: none;
+}
+
+.btn-hero:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 18px rgba(251,169,25,0.6);
+    color: var(--negro);
+}
+
+
+/* ==============================
+   TARJETAS DE SERVICIOS (NUEVAS)
+============================== */
+
+.servicio-card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(19, 45, 107, 0.15);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(19, 45, 107, 0.28);
+}
+
+.servicio-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.servicio-titulo {
+    color: var(--azul-oscuro);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.servicio-descripcion {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.servicio-precio {
+    color: var(--amarillo);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Botón Contactarnos (dorado → blanco) */
+.btn-contactar {
+    display: block;
+    text-align: center;
+    padding: 10px 18px;
+    margin-top: 10px;
+    border-radius: 30px;
+    font-weight: 700;
+    color: var(--negro);
+    text-decoration: none;
+    background: linear-gradient(90deg, #fff6cc, #d4af37, #ffffff);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn-contactar:hover {
+    transform: scale(1.06);
+    color: var(--negro);
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.6);
+}
+
+
+/* ================================
+   TIPOGRAFÍAS DE MARCA
+================================ */
+
+/* Fuente global para todo el sitio */
+body {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #2d2d2d;
+}
+
+/* Títulos principales (Playfair Display) */
+h1, h2, h3, h4, h5, h6,
+.section-title h2,
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Títulos más elegantes (Hero, secciones grandes) */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+/* Párrafos, descripciones, contenido general */
+p, li, a, input, select, label {
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+}
+
+/* Botones */
+.btn, button {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Card titles */
+.card h5,
+.servicio-titulo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+/* Ajustes de legibilidad */
+.card-body p {
+    font-size: 1rem;
+}

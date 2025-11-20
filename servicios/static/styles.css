@@ -1,0 +1,578 @@
+/* --- AJUSTE GLOBAL --- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Solo empuja hacia abajo el contenido normal, no el hero */
+main, section:not(.hero) {
+    padding-top: 100px; /* Ajusta según la altura del navbar */
+}
+
+/* --- IMÁGENES DE SERVICIOS --- */
+.servicio-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+
+
+/* --- FOOTER FIJO ABAJO --- */
+footer {
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+}
+
+/* --- PAGINACIÓN --- */
+.pagination {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.page-link {
+    color: #007BFF;
+    border: 1px solid #007BFF;
+}
+
+.page-link:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* --- RESPONSIVE HERO --- */
+
+
+/* === GENERAL SCROLL ANIMATIONS === */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === */
+/* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === *//* === ANIMACIÓN DE TARJETAS === */
+/* === ANIMACIÓN DE TARJETAS === */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto zoom en la imagen */
+.card img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Efecto en el botón */
+.card .btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card .btn:hover {
+  background-color: #0056b3; /* tono más oscuro del azul */
+  transform: scale(1.05);
+}
+
+/* Bordes suaves en las tarjetas */
+.card-body {
+  border-top: 1px solid #f1f1f1;
+  padding: 1.5rem;
+}
+
+
+
+/* === TARJETAS DE SERVICIOS con su titulo y los .html === */
+
+.section-title {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: #f5c518; /* Dorado similar a la "P" del logo */
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 1.5rem;
+}
+
+
+.card {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+.card-img-top.servicio-img {
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  border-bottom: 4px solid #007bff; /* puedes cambiar el color según la categoría */
+}
+
+.card:hover .card-img-top.servicio-img {
+  transform: scale(1.05);
+}
+
+/* Contenido */
+.card-body h5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.card-body .fw-bold {
+  font-size: 1.1rem;
+}
+
+/* Botón de WhatsApp */
+.card-body .btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #25D366;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.card-body .btn-success:hover {
+  background-color: #1eb85a;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+
+/* === SECCIONES DEL HOME (sin incluir Hero) === */
+
+/* --- Sección de Servicios --- */
+#servicios {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #f9f9f9;
+}
+
+#servicios h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+#servicios h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #007bff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Cartas de servicios */
+#servicios .card {
+  border: none;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+#servicios .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#servicios .card-img-top {
+  height: 150px;
+  object-fit: contain;
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+#servicios .card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+#servicios .card-title {
+  font-weight: 700;
+  color: #333;
+}
+
+#servicios .card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#servicios .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 8px 18px;
+  transition: all 0.3s ease;
+}
+
+#servicios .btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* --- Sección de Contacto --- */
+#contacto {
+  background: linear-gradient(180deg, #ffffff, #f1f5f9);
+  padding: 80px 0;
+}
+
+#contacto h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+#contacto h2::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Formulario */
+#contacto form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+#contacto form:hover {
+  transform: translateY(-5px);
+}
+
+#contacto input,
+#contacto textarea {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
+}
+
+/* Botón de envío */
+#contacto button {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+#contacto button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* --- Sección de FAQ --- */
+#faq {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+#faq h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#faq h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Accordion Items --- */
+.accordion-item {
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.accordion-button {
+  font-weight: 600;
+  color: #222;
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* --- Accordion Body --- */
+.accordion-collapse {
+  transition: height 0.35s ease; /* Suaviza el colapso */
+}
+
+.accordion-body {
+  color: #555;
+  font-size: 0.95rem;
+  background-color: #fff;
+  overflow: visible; /* Permite que el contenido se vea correctamente */
+  padding: 1rem 1.25rem;
+}
+
+/* --- Opcional: animación fade in al abrir cada item --- */
+.accordion-collapse.collapsing {
+  transition: height 0.35s ease, opacity 0.35s ease;
+  opacity: 0.7;
+}
+
+.accordion-collapse.show {
+  opacity: 1;
+}
+
+
+/* === NAVBAR PERSONALIZADO === */
+
+.navbar {
+  background-color: #111 !important;
+  padding: 12px 0;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff !important;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Letra "P" destacada en amarillo */
+.brand-highlight {
+  color: #FFD700; /* Amarillo dorado */
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+/* Texto del nombre */
+.brand-text {
+  color: #fff;
+}
+
+/* Espaciado entre links */
+.nav-link {
+  color: #ddd !important;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover de los enlaces */
+.nav-link:hover {
+  color: #FFD700 !important;
+  transform: translateY(-2px);
+}
+
+/* Estado activo */
+.nav-link.active {
+  color: #FFD700 !important;
+  font-weight: 600;
+}
+
+/* Botón del menú móvil */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* DISEñO DE CAMBIAR DE IMAGEN */
+.modal-content {
+  background: radial-gradient(circle at center, #1a1a1a, #000);
+  border: 1px solid #444;
+}
+
+.modal-body img {
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.btn-outline-light {
+  border-color: #f5c518;
+  color: #f5c518;
+}
+
+.btn-outline-light:hover {
+  background-color: #f5c518;
+  color: #000;
+}
+
+
+
+/* modal de imagenes */
+
+.modal-body img {
+  max-height: 70vh;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+.modal-body img.show {
+  opacity: 1;
+}
+
+
+
+/* css para filtros en los css */
+
+
+form.bg-light {
+  border: 1px solid #ddd;
+  transition: all 0.2s ease-in-out;
+}
+form.bg-light:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input.form-control, select.form-select {
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+
+/* ==== Sección de redes sociales ==== */
+.social-section {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-size: 2rem;
+  color: #C13584; /* color base de Instagram */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  color: #fff;
+  background: linear-gradient(45deg, #F56040, #833AB4, #E1306C); }

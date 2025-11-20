@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Paquetes" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <!-- Título -->
+    <div class="section-title text-center mb-4">
+        <h2 class="fw-bold">{% trans "Paquetes" %}</h2>
+    </div>
+
+    <!-- FILTROS -->
+    <form method="get" class="mb-4 row g-3 align-items-end">
+        <div class="col-md-4">
+            <label class="form-label fw-bold text-secondary">{% trans "Precio mínimo" %}</label>
+            <input type="number" name="precio_min" min="0" class="form-control"
+                   value="{{ precio_min|default:'' }}">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label fw-bold text-secondary">{% trans "Precio máximo" %}</label>
+            <input type="number" name="precio_max" min="0" class="form-control"
+                   value="{{ precio_max|default:'' }}">
+        </div>
+
+        <div class="col-md-4 d-flex gap-2">
+            <button class="btn btn-primary w-100" type="submit">{% trans "Filtrar" %}</button>
+            <a href="?" class="btn btn-outline-secondary w-100">{% trans "Limpiar" %}</a>
+        </div>
+    </form>
+
+    <!-- TARJETAS -->
+    <div class="row">
+        {% for servicio in page_obj %}
+        <div class="col-md-4 mb-4">
+            <div class="card servicio-card h-100">
+
+                <img src="{{ servicio.imagen.url }}" class="card-img-top servicio-img" alt="{{ servicio.titulo }}">
+
+                <div class="card-body">
+                    <h5 class="servicio-titulo">{{ servicio.titulo }}</h5>
+                    <p class="servicio-descripcion">{{ servicio.descripcion|linebreaksbr }}</p>
+
+                    {% if servicio.precio %}
+                    <p class="servicio-precio">${{ servicio.precio }}</p>
+                    {% endif %}
+
+                    <a href="https://wa.me/message/B6X733YR24MSF1" class="btn-contactar">{% trans "Contactarnos" %}</a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <p class="text-center py-5">{% trans "No hay propiedades disponibles actualmente." %}</p>
+        {% endfor %}
+    </div>
+
+   <!-- PAGINACIÓN -->
+<div class="pagination justify-content-center mt-4">
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <span class="page-link">{{ num }}</span>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+            </li>
+        {% endif %}
+
+    </ul>
+</div>
+{% endblock %}
