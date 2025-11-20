@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminsortable2',
     'servicios',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 # =========================================================
@@ -121,6 +123,15 @@ MODELTRANSLATION_TRANSLATE_ADMIN = False
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+
+# Configuración Cloudinary
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('dkrkakktr'),  # opcional, usamos CLOUDINARY_URL preferiblemente
+    'API_KEY': os.getenv('898984289713534'),
+    'API_SECRET': os.getenv('hXAPlVoixB0fwsyxWjwl_jphuak'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # =========================================================
 # 📁 STATIC & MEDIA FILES
