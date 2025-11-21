@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 load_dotenv()
 DEBUG = os.getenv("DEBUG") == "True"
@@ -94,24 +95,21 @@ else:
     }
 
 
-# Idioma por defecto
-LANGUAGE_CODE = 'es'
+# Internacionalización
+LANGUAGES = [
+    ('es', _('Español')),
+    ('en', _('English')),
+    ('fr', _('Français')),
+]
 
-# Idiomas disponibles
+LANGUAGE_CODE = 'es'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-LANGUAGES = [
-    ('es', 'Español'),
-    ('en', 'English'),
-    ('fr', 'Français'),
-]
-
-# Carpeta de traducciones
-LOCALE_PATHS = [
-    BASE_DIR / 'locale',  # asegúrate que tus .po/.mo estén aquí
-]
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
+MODELTRANSLATION_TRANSLATE_ADMIN = False
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 SESSION_COOKIE_SECURE = True   # obligatorio si usas HTTPS
 CSRF_COOKIE_SECURE = True

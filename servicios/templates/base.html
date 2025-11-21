@@ -41,13 +41,12 @@
         <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#faq">{% trans "FAQ" %}</a></li>
 
         <form action="{% url 'set_language' %}" method="post" class="d-flex ms-3">
-          {% csrf_token %}
-          <input name="next" type="hidden" value="{{ request.get_full_path }}">
-          <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
-            <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>🇪🇸 Español</option>
-            <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 English</option>
-            <option value="fr" {% if request.LANGUAGE_CODE == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
-          </select>
+            {% csrf_token %}
+            <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
+                <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>🇪🇸 Español</option>
+                <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 English</option>
+                <option value="fr" {% if request.LANGUAGE_CODE == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
+            </select>
         </form>
 
 
