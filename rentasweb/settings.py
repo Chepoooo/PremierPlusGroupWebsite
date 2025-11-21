@@ -14,7 +14,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret')
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOST", "").split(",") + ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = [
+    'web-production-ec74c.up.railway.app',
+    'www.premierplusgroup.com',
+    'premierplusgroup.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 CSRF_TRUSTED_ORIGINS = [
     os.getenv("CSRF_ORIGIN", "")
