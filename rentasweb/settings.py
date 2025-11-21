@@ -94,14 +94,23 @@ else:
     }
 
 
+# Idioma por defecto
 LANGUAGE_CODE = 'es'
 
+# Idiomas disponibles
 USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 LANGUAGES = [
-    ('es', 'Spanish'),
+    ('es', 'Español'),
     ('en', 'English'),
-    ('fr', 'French'),
+    ('fr', 'Français'),
+]
+
+# Carpeta de traducciones
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',  # asegúrate que tus .po/.mo estén aquí
 ]
 
 SESSION_COOKIE_SECURE = True   # obligatorio si usas HTTPS
