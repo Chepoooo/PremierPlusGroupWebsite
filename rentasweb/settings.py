@@ -23,7 +23,9 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    os.getenv("CSRF_ORIGIN", "")
+    os.getenv("CSRF_ORIGIN", ""),  # Railway domain
+    "https://premierplusgroup.com",
+    "https://www.premierplusgroup.com",
 ]
 
 # -----------------------------
@@ -141,5 +143,3 @@ MEDIA_URL = '/media/'
 # DEFAULT PRIMARY KEY
 # -----------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CSRF_TRUSTED_ORIGINS = ['https://web-production-ec74c.up.railway.app']
